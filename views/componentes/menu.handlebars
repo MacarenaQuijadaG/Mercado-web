@@ -1,4 +1,4 @@
- // narbar
+{{!-- nadvar --}}
  <nav class="navbar bg-success">
     <div class="container-fluid d-flex justify-content-center ">
             <a href="#" class="btn btn-outline-dark  ">
@@ -6,3 +6,20 @@
             </a>
     </div>
 </nav>
+
+{{!-- modal --}}
+
+<div class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p>Añadidos:</p>
+         {{#each carrito}}
+        <div class="col-4 producto" data-nombre="{{nombre}}">
+          <img src="/{{imagen}}" alt="{{nombre}}">
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>
