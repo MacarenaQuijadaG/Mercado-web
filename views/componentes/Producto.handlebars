@@ -1,0 +1,9 @@
+{{!-- productos ordenados para mostrar en forma centrada en la main --}}
+<div class="container row m-auto my-4 ">
+    {{#each productos}}
+    <div class="col-4 my-3" data-nombre="{{nombre}}">
+        <h3>{{nombre}}</h3>
+        <img src="/{{imagen}}" alt="{{nombre}}">
+    </div>
+    {{/each}}
+</div>

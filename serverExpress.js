@@ -6,7 +6,12 @@ app.listen(3000, () => {
     console.log("El servidor está inicializado en el puerto 3000");
 });
 
+// solicitudes de archivos estaticos
+//conecta con assests que es en donde se conecta con las imagenes
+app.use(express.static(__dirname + '/Assets'));
+// conecta con bootstrap que esta descrgado en el node_modules
 app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/css'))
+// se conecta con jquery que esta descargado en node_modules
 app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist'))
 
 
@@ -29,16 +34,17 @@ app.get("/", (req, res) => {
 //por eso se cambio a un arreglo asignando un nombre y a la imagen señalando su formato para ser mostrado
 const productos = [
    // "Platano": "/Assets/banana.png",
-   { nombre: 'banana', imagen: 'banana.png', seleccionado:false },
+   { nombre: 'Banana', imagen: 'banana.png', seleccionado:false },
    //"Cebolla": "/Assets/cebollas.png",
-   { nombre: 'cebollas', imagen: 'cebollas.png', seleccionado:false },
+   { nombre: 'Cebollas', imagen: 'cebollas.png', seleccionado:false },
     //"Pimenton": "/Assets/pimenton.png",
-    { nombre: 'pimenton', imagen: 'pimenton.png', seleccionado:false },
+    { nombre: 'Pimenton', imagen: 'pimenton.png', seleccionado:false },
     //"Papas": "/Assets/papas.png",
-    { nombre: 'papas', imagen: 'papas.png', seleccionado:false },
+    { nombre: 'Papas', imagen: 'papas.png', seleccionado:false },
     //"Lechuga": "/Assets/lechuga.png",
-    { nombre: 'lechuga', imagen: 'lechuga.png', seleccionado:false },
+    { nombre: 'Lechuga', imagen: 'lechuga.png', seleccionado:false },
     //"Tomate": "/Assets/tomate.png"
-    { nombre: 'tomate', imagen: 'tomate.png', seleccionado:false }
+    { nombre: 'Tomate', imagen: 'tomate.png', seleccionado:false }
 ];
+
 
