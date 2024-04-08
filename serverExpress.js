@@ -4,7 +4,7 @@ const exphbs = require("express-handlebars");
 const bodyParser = require('body-parser');
 
 app.listen(3000, () => {
-    console.log("El servidor está inicializado en el puerto 3000");
+    console.log("El servidor en el puerto 3000");
 });
 
 // solicitudes de archivos estaticos
@@ -14,8 +14,9 @@ app.use(express.static(__dirname + '/Assets'));
 app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/css'))
 // se conecta con jquery que esta descargado en node_modules
 app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist'))
-
+// se conecta con el script.js
 app.use('/script', express.static(__dirname + '/js'))
+
 
 
 // Configuración de Handlebars
@@ -44,45 +45,9 @@ const productos = [
     //"Tomate": "/Assets/tomate.png"
     { nombre: 'Tomate', imagen: 'tomate.png', seleccionado:false }
 ];
-let carrito = [];
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// agregar al carro
-app.post('/seleccionar', (req, res) => {
-    const productoNombre = req.body.nombre;
-    const producto = productos.find(p => p.nombre === productoNombre);
-    if (producto) {
-        if (!producto.seleccionado) {
-            producto.seleccionado = true;
-            carrito.push(producto);
-            console.log(producto.seleccionado);
-        } else {
-            console.log("se añadio " + productoNombre);
-        }
-        
-    }
-});
-// quitar del carro
-app.post('/deseleccionar', (req, res) => {
-    const productoNombre = req.body.nombre;
-    const producto = productos.find(p => p.nombre === productoNombre);
-    if (producto) {
-        const index = carrito.indexOf(producto);
-        if (index !== -1) {
-            carrito.splice(index, 1);
-            producto.seleccionado = false; 
-            console.log("eliminado " + productoNombre);
-            res.send('eliminado');
-            console.log(producto.seleccionado);
-        } else {
-            console.log("no se encontro " + productoNombre);
-            res.send('no se encontro ');
-        }
-    } else {
-        console.log("producto no existe: " + productoNombre);
-        res.send('producto no existe.');
-    }
-});
 
 app.get("/", function (req, res) {
     res.render("main", {
