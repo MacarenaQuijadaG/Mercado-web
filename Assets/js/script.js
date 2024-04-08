@@ -1,41 +1,47 @@
-// lee del html
-let productos = document.querySelectorAll('img')
-let carro = document.querySelector('button')
-let contenidoModal = document.querySelector('.modal-content')
+// Selecciona todos los elementos <img>
+let productos = document.querySelectorAll('img');
+
+// Selecciona el botón del carrito
+let carro = document.getElementById('carro');
+
+// Selecciona el contenido del modal
+let contenidoModal = document.querySelector('.modal-content');
+
+// Define un conjunto para almacenar los productos seleccionados
 let mostrar = new Set();
 
-//Se capturan los elementos del arreglo productos y se les asigna un listener para cada evento necesario
+// Asigna eventos a los productos
 productos.forEach(function (producto) {
-    // se quita la opacidad
+    // Escucha el evento de doble clic para remover el producto del conjunto
     producto.addEventListener("dblclick", function () {
-        mostrar.delete(producto.getAttribute('src'))
-        // la opacidas del producto
-        producto.style.opacity = "1"
+        mostrar.delete(producto.getAttribute('src'));
+        producto.style.opacity = "1";
     });
-    // en caso de hacer el click se aplica
+    
+    // Escucha el evento de clic para agregar el producto al conjunto
     producto.addEventListener('click', function () {
-        mostrar.add(producto.getAttribute('src'))
-        producto.style.opacity = "0.5"
-    })
-
-})
-// se muestra el agregado
-document.addEventListener("DOMContentLoaded", function() {
-    document.addEventListener('click', function(event) {
-        if (event.target && event.target.id === 'carro') {
-            const contenidoCarro = Array.from(mostrar);
-            contenidoModal.innerHTML = '';
-
-            if (contenidoCarro.length !== 0) {
-                contenidoCarro.forEach(function (productoCarro) {
-                    contenidoModal.innerHTML += `<img src="${productoCarro}"  width="200rem">`;
-                });
-            } else {
-                contenidoModal.innerHTML = '<h3 class="text-danger">¡Está vacío!</h3>';
-            }
-            let modal = new bootstrap.Modal(document.getElementById('Modal'));
-            modal.show();
-        }
+        mostrar.add(producto.getAttribute('src'));
+        producto.style.opacity = "0.5";
     });
 });
 
+// Escucha el evento de clic en el botón del carrito
+carro.addEventListener('click', function () {
+    // Limpia el contenido del modal
+    contenidoModal.innerHTML = '';
+
+    // Verifica si hay productos seleccionados
+    if (mostrar.size !== 0) {
+        // Agrega cada producto seleccionado al modal
+        mostrar.forEach(function (producto) {
+            contenidoModal.innerHTML += `<img src="${producto}" width="200rem">`;
+        });
+    } else {
+        // Muestra un mensaje si no hay productos seleccionados
+        contenidoModal.innerHTML = '<h3 class="text-danger">¡Está vacío!</h3>';
+    }
+
+    // Muestra el modal
+    let modal = new bootstrap.Modal(document.getElementById('Modal'));
+    modal.show();
+});
