@@ -15,6 +15,8 @@ app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/c
 // se conecta con jquery que esta descargado en node_modules
 app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist'))
 
+app.use('/script', express.static(__dirname + '/js'))
+
 
 // Configuración de Handlebars
 //app.engine("handlebars", exphbs({ defaultLayout: "main" }));
@@ -25,11 +27,6 @@ app.engine('handlebars', exphbs.engine({extname: '.handlebars', defaultLayout: '
     layoutsDir: __dirname + '/views', 
     partialsDir: __dirname + '/views/componentes' 
 }));
-
-
-app.get("/", (req, res) => {
-    res.render("main", { productos });
-});
 
 //Arreglo de productos se programo como objeto y no mostro mayor detalle como las img solo nombre y el icono de img
 //por eso se cambio a un arreglo asignando un nombre y a la imagen señalando su formato para ser mostrado
