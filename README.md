@@ -2,7 +2,8 @@
 
 Bienvenido al proyecto del Mini Market "Come Sano, Come Fresco Spa". Este proyecto tiene como objetivo desarrollar una aplicación web donde los usuarios puedan ofrecer y vender alimentos de forma online. Utilizaremos Express para crear el servidor y Handlebars como motor de plantillas para renderizar los componentes del sitio web.
 
-## Visuales 
+## Visuales 📝
+![2](https://github.com/MacarenaQuijadaG/Mercado-web/assets/50925916/48bd78a6-8ae4-4d4f-9525-78e1de341351)
 
 
 ## Instalación 🔧
