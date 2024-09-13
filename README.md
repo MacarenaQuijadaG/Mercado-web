@@ -33,7 +33,7 @@ Bienvenido al proyecto del Mini Market "Come Sano, Come Fresco Spa". Este proyec
 2. Abre tu navegador y navega a `http://localhost:3000` para ver el sitio web.
 
 ## Construido Con 🛠️
-
+-[Handlebars]() - Gestor de Plantillas.
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - El lenguaje utilizado
 - [Express](https://expressjs.com/es/) - Framework
 
