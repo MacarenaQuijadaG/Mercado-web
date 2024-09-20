@@ -34,7 +34,7 @@ Bienvenido al proyecto del Mini Market "Come Sano, Come Fresco Spa". Este proyec
 
 ## Construido Con 🛠️
 - [Handlebars](https://handlebarsjs.com/) - Gestor de Plantillas.
-- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - El lenguaje utilizado
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - Lenguaje
 - [Express](https://expressjs.com/es/) - Framework
 
 ---
